@@ -50,5 +50,14 @@ object Test02_ForLoop {
     for (i <- Range(1, 4).reverse) {
       println(i)
     }
+    println("+++++++++++")
+    // 末尾比开头更小的根本for循环不执行
+    for (i <- 0 to -2) {
+      println(i)
+    }
+    // 末尾 >= 开始，才能执行
+    for (i <- 0 to 0) {
+      println(i)
+    }
   }
 }

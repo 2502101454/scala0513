@@ -26,5 +26,10 @@ object Test10_Tuple {
     // 4. 嵌套元组
     val tuple1: (Int, Double, String, (Int, String), Int) = (12, 0.3, "hello", (23, "scala"), 3)
     println(tuple1._4._2)
+
+    // 对于二元的tuple，支持swap交换元素位置，返回新的tuple
+    val tuple2 = (1, 2)
+    println(tuple2.swap) // (2,1)
+    println(tuple2) // (1,2)
   }
 }
