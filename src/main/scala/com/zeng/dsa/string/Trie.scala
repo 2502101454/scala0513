@@ -14,10 +14,10 @@ object Trie {
     var root = new TrieNode(data = '/')
   }
 
-  /**
+  /** Trie树，也是字典树
    * 构建Trie树，返回根节点
    * @param root
-   * @param word
+   * @param word 每次输入一个单词，进行构建
    */
   def buildTrie(root: TrieNode, word: String): Unit = {
     val array: Array[Char] = word.toCharArray

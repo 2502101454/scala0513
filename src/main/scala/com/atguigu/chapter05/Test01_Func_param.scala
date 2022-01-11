@@ -1,5 +1,7 @@
 package com.atguigu.chapter05
 
+import java.rmi.StubNotFoundException
+
 /**
  *
  * @author zengwang
@@ -81,4 +83,37 @@ object Test01_Func_param {
     }
     println(bar2()())
   }
+}
+
+
+/**
+ * 匿名函数参数使用补充
+ */
+object DemoMore {
+  def main(args: Array[String]): Unit = {
+    val array: Array[Array[Int]] = Array.ofDim(2, 3)
+    //error：'_'只可以用作匿名函数至简后的表达，不可以用做未简化时的参数名
+    //array.foreach(_ => {println(_.mkString)})
+    array.foreach(line => {println(line.mkString)})
+
+    // error: 把 _.mkString("=") 整体当做'_'，所以这里无法解析的
+//    array.foreach(println(_.mkString("=")))
+    // error: 把 bar(_) 整体当做'_'
+//    array.foreach(println(bar(_)))
+    array.foreach(bar(_))
+    array.foreach(println(_))
+
+    /**
+     * 结论：
+     * 1. _ 只可用于匿名函数简化后的表达，不可以用做未简化时的参数名
+     * 2. 匿名函数至简原则时，注意函数的嵌套使用时，要表达的参数'_' 到底代表的啥
+     *
+     * 开发中，实在不行就不简化了，多写点就行
+     */
+  }
+
+  def bar(array: Array[Int]): Int = {
+    array.sum
+  }
+
 }
