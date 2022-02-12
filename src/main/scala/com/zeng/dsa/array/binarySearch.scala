@@ -6,7 +6,7 @@ package com.zeng.dsa.array
  * @create 2022-01-09 4:57 下午
  * @function:
  */
-object binary_search {
+object binarySearch {
 
   def main(args: Array[String]): Unit = {
 

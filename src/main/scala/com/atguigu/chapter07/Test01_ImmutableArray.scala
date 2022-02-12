@@ -60,5 +60,11 @@ object Test01_ImmutableArray {
     // 给前面加元素 +:  给后面加是 :+ 可以追加多个元素，注意顺序
     val newArr4 = 19 +: 20 +: newArr2 :+ 21 :+ 22
     println(newArr4.mkString(", "))
+
+    // 查找数组第一个元素给定元素值的下标，找不到返回-1
+    val newArr5 = Array(1,2,3,4,2,1,6)
+    println(newArr5.indexOf(2)) // 1
+    println(newArr5.indexOf(3)) // 2
+    println(newArr5.indexOf(5)) // -1
   }
 }

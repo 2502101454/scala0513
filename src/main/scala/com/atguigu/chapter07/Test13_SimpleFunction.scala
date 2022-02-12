@@ -21,7 +21,7 @@ object Test13_SimpleFunction {
     // (4)最小值
     println(list1.min)
     println(list2.minBy(_._2))
-    // (5)排序
+    // (5)排序 下面方法都是返回一个新的集合，不修改原集合!!
     // 从小到大，正序
     println(list1.sorted)
     // 从大到小，倒序
