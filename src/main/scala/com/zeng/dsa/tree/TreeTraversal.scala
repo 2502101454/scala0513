@@ -12,11 +12,15 @@ import scala.util.control.Breaks
  */
 object TreeTraversal {
   def main(args: Array[String]): Unit = {
-    val root: TreeNode = buildTree()
-    println(preorderTraversal(root))
-    println(colorfulPreOrderTraversal(root))
-    println(colorfulInOrderTraversal(root))
-    println(colorfulPostOrderTraversal(root))
+
+    val buffer: ListBuffer[Int] =new ListBuffer()
+    buffer.append(1)
+    println(buffer)
+//    val root: TreeNode = buildTree()
+//    println(preorderTraversal(root))
+//    println(colorfulPreOrderTraversal(root))
+//    println(colorfulInOrderTraversal(root))
+//    println(colorfulPostOrderTraversal(root))
   }
 
   def buildTree(): TreeNode = {
@@ -24,6 +28,42 @@ object TreeTraversal {
     var t2 = new TreeNode(2, t3, null)
     var t1 = new TreeNode(1, null, t2)
     t1
+  }
+
+  /**
+   * 递归的前序遍历
+   * @param root
+   * @return
+   */
+  def recursivePreOrder(root: TreeNode, listBuffer: ListBuffer[Int]): Unit = {
+    if (root == null) return
+    listBuffer.append(root.value)
+    recursivePreOrder(root.left, listBuffer)
+    recursivePreOrder(root.right, listBuffer)
+  }
+
+  /**
+   * 递归的中序遍历
+   * @param root
+   * @return
+   */
+  def recursiveInOrder(root: TreeNode, listBuffer: ListBuffer[Int]): Unit = {
+    if (root == null) return
+    recursivePreOrder(root.left, listBuffer)
+    listBuffer.append(root.value)
+    recursivePreOrder(root.right, listBuffer)
+  }
+
+  /**
+   * 递归的后序遍历
+   * @param root
+   * @return
+   */
+  def recursivePostOrder(root: TreeNode, listBuffer: ListBuffer[Int]): Unit = {
+    if (root == null) return
+    recursivePreOrder(root.left, listBuffer)
+    recursivePreOrder(root.right, listBuffer)
+    listBuffer.append(root.value)
   }
 
   /**

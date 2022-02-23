@@ -19,6 +19,8 @@ object Leet206 {
    * 分析:
    * 1.在反转Node.next的时候，防止next链路断掉，提前取一个游标存着
    * 2.注意第一个节点也要反转，next指向null
+   *
+   * 关注cur--中间这个节点(pre, cur, nextTmp)，要做的事情，画图举例帮助分析
    * @param head
    * @return
    */

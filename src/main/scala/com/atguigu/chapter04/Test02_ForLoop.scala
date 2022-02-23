@@ -42,7 +42,7 @@ object Test02_ForLoop {
 
     val ints: immutable.IndexedSeq[Int] = for (i <- 1 to 3) yield i * i
     println(ints)
-    for (i <- 1 to 3 reverse){
+    for (i <- (1 to 3).reverse){
       println(s"$i")
     }
     println("===========")
